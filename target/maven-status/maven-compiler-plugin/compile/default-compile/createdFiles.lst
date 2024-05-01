@@ -1,0 +1,15 @@
+danil\tiv\library\controllers\BookController.class
+danil\tiv\library\controllers\ReaderController.class
+danil\tiv\library\store\entities\BooksEntity.class
+danil\tiv\library\servicies\ReaderService.class
+danil\tiv\library\store\entities\State.class
+danil\tiv\library\store\repositories\BookRepository.class
+danil\tiv\library\store\repositories\ReaderRepository.class
+danil\tiv\library\store\entities\Gender.class
+danil\tiv\library\store\repositories\StateOfBookRepository.class
+danil\tiv\library\store\entities\StateOfBooksEntity.class
+danil\tiv\library\controllers\StateOfBookController.class
+danil\tiv\library\MyApplication.class
+danil\tiv\library\store\entities\ReadersEntity.class
+danil\tiv\library\servicies\BookService.class
+danil\tiv\library\servicies\StateOfBookService.class
