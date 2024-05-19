@@ -45,4 +45,4 @@
 
 ## Зависимости Maven
 
-Проект использует Maven для управления зависимостями. Зависимости включают Hibernate, Jersey, PostgreSQL, Guice.
+Проект использует Maven для управления зависимостями. Зависимости включают Hibernate, Jersey, PostgreSQL, Guice, JAX-RS.
