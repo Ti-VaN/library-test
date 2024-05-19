@@ -2,6 +2,8 @@ package danil.tiv.library.store.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -16,13 +18,13 @@ public class ReadersEntity {
 	@Column(name = "reader_id")
 	private int readerId;
 	
-	@Column(name = "full_name")	
+	@Column(name = "full_name", nullable = false)	
 	private String fullName;
 	
-	@Column(name = "gender")
+	@Column(name = "gender", nullable = false)
 	private Gender gender;
 	
-	@Column(name = "age")
+	@Column(name = "age", nullable = false)
 	private int age;
 	
 	public ReadersEntity() {}
@@ -57,6 +59,7 @@ public class ReadersEntity {
 		return gender;
 	}
 	
+	@Enumerated(EnumType.STRING)
 	public void setGender(Gender gender) {
 		this.gender = gender;
 	}

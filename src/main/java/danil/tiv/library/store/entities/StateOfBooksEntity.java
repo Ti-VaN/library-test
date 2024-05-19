@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -18,16 +20,17 @@ public class StateOfBooksEntity {
 	@Column(name = "state_of_book_id")
 	private int stateOfBooksId;
 	
-	@Column(name = "reader_id")
+	@Column(name = "reader_id", nullable = false)
 	private int readerId;
 	
-	@Column(name = "book_id")
+	@Column(name = "book_id", nullable = false)
 	private int bookId;
 	
-	@Column(name = "state_of_book")
+	@Enumerated(EnumType.STRING)
+	@Column(name = "state_of_book", nullable = false)
 	private State stateOfBook;
 	
-	@Column(name = "date_state_of_book")
+	@Column(name = "date_state_of_book", nullable = false)
 	private LocalDate dateStateOfBook;
 	
 	public StateOfBooksEntity() {}

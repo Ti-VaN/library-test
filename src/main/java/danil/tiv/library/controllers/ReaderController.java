@@ -2,6 +2,8 @@ package danil.tiv.library.controllers;
 
 import java.util.List;
 
+import com.google.inject.Inject;
+
 import danil.tiv.library.servicies.ReaderService;
 import danil.tiv.library.store.entities.ReadersEntity;
 import jakarta.ws.rs.Consumes;
@@ -15,8 +17,6 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
-
-
 @Path("/readers")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
@@ -24,6 +24,7 @@ public class ReaderController {
 
     private final ReaderService readerService;
 
+    @Inject
     public ReaderController(ReaderService readerService) {
         this.readerService = readerService;
     }
@@ -54,7 +55,7 @@ public class ReaderController {
     @Path("/{id}")
     public Response updateReader(@PathParam("id") int id, ReadersEntity reader) {
         reader.setReaderId(id); 
-        readerService.addReader(reader);
+        readerService.updateReader(reader);
         return Response.ok().build();
     }
 

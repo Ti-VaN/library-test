@@ -2,6 +2,8 @@ package danil.tiv.library.controllers;
 
 import java.util.List;
 
+import com.google.inject.Inject;
+
 import danil.tiv.library.servicies.StateOfBookService;
 import danil.tiv.library.store.entities.StateOfBooksEntity;
 import jakarta.ws.rs.Consumes;
@@ -23,6 +25,7 @@ public class StateOfBookController {
 
     private final StateOfBookService stateOfBookService;
 
+    @Inject
     public StateOfBookController(StateOfBookService stateOfBookService) {
         this.stateOfBookService = stateOfBookService;
     }
@@ -52,7 +55,7 @@ public class StateOfBookController {
     @Path("/{id}")
     public Response updateState(@PathParam("id") int id, StateOfBooksEntity stateofbook) {
     	stateofbook.setStateOfBooksId(id);
-        stateOfBookService.addStateOfBook(stateofbook);
+        stateOfBookService.updateStateOfBook(stateofbook);
         return Response.ok().build();
     }
 

@@ -17,18 +17,17 @@ public class BooksEntity {
 	  @GeneratedValue(strategy = GenerationType.IDENTITY)
 	  @Column(name = "book_id")
 	  private int bookId;
-	
 	  
-	  @Column(name = "book_name")
+	  @Column(name = "book_name", nullable = false)
 	  private String bookName;
 	  
-	  @Column(name = "author")
+	  @Column(name = "author", nullable = false)
 	  private String author;
 	  
-	  @Column(name = "year_of_book")
+	  @Column(name = "year_of_book", nullable = false)
 	  private LocalDate yearBook;
 	  
-	  @Column(name = "count_of_book")
+	  @Column(name = "count_of_book", nullable = false)
 	  private int countBook;
 	  
 	  public BooksEntity() {}

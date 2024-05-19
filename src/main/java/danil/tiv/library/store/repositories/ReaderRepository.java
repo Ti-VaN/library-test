@@ -13,6 +13,8 @@ public interface ReaderRepository {
 	 
 	 void saveReader(ReadersEntity reader);
 	 
+	 void updateReader(ReadersEntity reader);
+	 
 	 void deleteReaderById(int id);
 	 
 }

@@ -3,7 +3,6 @@ package danil.tiv.library.store.dao;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.query.Query;
 
 import danil.tiv.library.store.entities.StateOfBooksEntity;
 import danil.tiv.library.store.repositories.StateOfBookRepository;
@@ -59,9 +58,9 @@ public class StateOfBookDao implements StateOfBookRepository {
         try {
             transaction = entityManager.getTransaction();
             transaction.begin();
-            Query<StateOfBooksEntity> query = (Query<StateOfBooksEntity>) entityManager.createQuery("DELETE FROM StateOfBooksEntity s WHERE s.id = :id", StateOfBooksEntity.class);
-            query.setParameter("id", id);
-            query.executeUpdate();
+            entityManager.createQuery("DELETE FROM StateOfBooksEntity s WHERE s.stateOfBooksId = :id")
+                         .setParameter("id", id)
+                         .executeUpdate();
             transaction.commit();
         } catch (RuntimeException e) {
             if (transaction != null && transaction.isActive()) {

@@ -3,7 +3,6 @@ package danil.tiv.library.store.dao;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.query.Query;
 
 import danil.tiv.library.store.entities.BooksEntity;
 import danil.tiv.library.store.repositories.BookRepository;
@@ -23,7 +22,7 @@ public class BookDao implements BookRepository {
     @Override
     public List<BooksEntity> findAllBooks() {
         try (Session session = sessionFactory.openSession()) {
-            return session.createQuery("FROM BookEntity", BooksEntity.class).list();
+            return session.createQuery("FROM BooksEntity", BooksEntity.class).list();
         }
     }
 
@@ -50,9 +49,9 @@ public class BookDao implements BookRepository {
         try {
             transaction = entityManager.getTransaction();
             transaction.begin();
-            Query<BooksEntity> query = (Query<BooksEntity>) entityManager.createQuery("DELETE FROM BooksEntity b WHERE b.id = :id", BooksEntity.class);
-            query.setParameter("id", id);
-            query.executeUpdate();
+            entityManager.createQuery("DELETE FROM BooksEntity b WHERE b.bookId = :id")
+                         .setParameter("id", id)
+                         .executeUpdate();
             transaction.commit();
         } catch (RuntimeException e) {
             if (transaction != null && transaction.isActive()) {
@@ -63,6 +62,7 @@ public class BookDao implements BookRepository {
             entityManager.close();
         }
     }
+
 
     @Override
     public void updateBook(BooksEntity updatedBook) {

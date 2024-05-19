@@ -16,10 +16,6 @@ public class StateOfBookService {
 		this.stateOfBookRepository = stateOfBookRepository;
 	}
 	
-	public StateOfBookService() {
-	       this.stateOfBookRepository = null; 
-	}
-	
 	public List<StateOfBooksEntity> findAllStateOfBook(){
 		return stateOfBookRepository.findAllStateOfBook();
 	}

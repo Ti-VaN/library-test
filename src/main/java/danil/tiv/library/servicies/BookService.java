@@ -15,10 +15,6 @@ public class BookService {
     public BookService(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
     }
-
-	public BookService() {
-	       this.bookRepository = null; 
-	}
 	
     public List<BooksEntity> findAllBooks() {
         return bookRepository.findAllBooks();
@@ -30,6 +26,10 @@ public class BookService {
 
     public void addBook(BooksEntity book) {
         bookRepository.saveBook(book);
+    }
+    
+    public void updateBook(BooksEntity book) {
+        bookRepository.updateBook(book);
     }
     
     public void deleteBookById(int id) {

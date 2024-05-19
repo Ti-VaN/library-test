@@ -17,10 +17,6 @@ public class ReaderService {
         this.readerRepository = readerRepository;
     }
 	
-	public ReaderService() {
-	       this.readerRepository = null; 
-	}
-	
     public List<ReadersEntity> findAllReaders() {
         return readerRepository.findAllReaders();
     }
@@ -31,6 +27,10 @@ public class ReaderService {
 
     public void addReader(ReadersEntity reader) {
     	readerRepository.saveReader(reader);
+    }
+    
+    public void updateReader(ReadersEntity reader) {
+        readerRepository.updateReader(reader);
     }
 
     public void deleteReaderById(int id) {

@@ -7,7 +7,6 @@ import danil.tiv.library.store.entities.BooksEntity;
 
 public interface BookRepository {
 
-	
 	 List<BooksEntity> findAllBooks();
 	 
 	 BooksEntity findBookById(int id);
